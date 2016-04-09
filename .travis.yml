@@ -1,0 +1,59 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+- gem install asciidoctor -v 1.5.2 
+- gem install tilt
+- sudo pip install git+https://github.com/rdhyee/ebooklib.git
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+- asciidoctor -a toc,idprefix=xx_,version=$VERSION -b xhtml5 -T ./asciidoctor-htmlbook/htmlbook-autogen/
+  -d book book.asciidoc -o book.html
+- git clone https://github.com/gitenberg-dev/HTMLBook
+
+# make book.html available to jinja2 environment by putting it into templates
+- cp book.html asciidoctor-htmlbook/gitberg-machine/templates/
+
+- /usr/bin/python asciidoctor-htmlbook/gitberg-machine/machine.py -o . -m metadata.yaml book.html
+- xsltproc -stringparam external.assets.list " " ./HTMLBook/htmlbook-xsl/epub.xsl book.html
+- cp ./HTMLBook/stylesheets/epub/epub.css OEBPS
+- if [ -e cover.jpg ]; then cp cover.jpg OEBPS/cover.jpg; fi
+# look for first images directory and one found, copy over to ./OEBPS
+- find . -name images -type d | head -n 1 | xargs -I {} mv {} ./OEBPS/
+- zip -rX book.epub mimetype
+- zip -rX book.epub OEBPS/ META-INF/
+- if test -d "OEBPS/images/"; then zip -rX book.epub OEBPS/images/ ;fi
+- mv book.epub The-Life-and-Opinions-of-Tristram-Shandy-Gentleman.epub
+- ebook-convert The-Life-and-Opinions-of-Tristram-Shandy-Gentleman.epub The-Life-and-Opinions-of-Tristram-Shandy-Gentleman.mobi
+- xvfb-run ebook-convert The-Life-and-Opinions-of-Tristram-Shandy-Gentleman.epub The-Life-and-Opinions-of-Tristram-Shandy-Gentleman.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: ZqhA2fSrk3S4L3jAa/PSeDz3+4gYuUHZNV68S+fbEUGJpwsA0zTaMPehHpFV3+oBAKH0G5+Tr4DAhUGC9yppqHbCyMcTCR09jIFPII5rwlIESCloqMji6eV4QJ363lAvfrs9aR4/pP0VzvodyGIv5BmUHlWjNR7sO0zTnVHMf5aeCA+v6ktpqedXqqOHt+63vnr/LqrsrSJuVTAZHMB3WWK+H2CYz4/QYRhuwg6/Sx5NWO/Bkw6ypl/S2XNBo4h0aI7Ngd+vVnd7McRMstj/jsJ8drp2ToQbwk8FprxPGO7TjrMPzBQ3RlLjOXjs/v8yPZnmHatzzikm4esNWx/XZiNPFyxIEic3Wt6V7Cte7exKSQXe3XBiropaQxhQYk/TNFWR/IxI37Ir3VUkBxJFAAuJlv6t41xc6F0KxpKfvfa1v1FdPdCGxAxjBW8+oLQ24Z1PCT3qvyYmWVRMm25J6GGKQx5IHDShBJbMC4Fip1tZ88dPsoyYHhQyVWjJKt3BzbH8cNgewg04rAtvkO61ecLY2bpXWdwqAbuQcZbk+FSX1A5oZsJrzQ5fcv4QEmRS53tR2t+/Rfpwfu0mvW5i84RmZJ2slz1QUOg7IPl77CV+h69iBxjXR5jiOJexjg9sUqLHPR6Cb/4IH163nT859vfk3tRrb2mVMNzj++zfZy4=
+  file:
+    - The-Life-and-Opinions-of-Tristram-Shandy-Gentleman.epub
+    - The-Life-and-Opinions-of-Tristram-Shandy-Gentleman.mobi
+    - The-Life-and-Opinions-of-Tristram-Shandy-Gentleman.pdf
+  "on":
+    repo: GITenberg/The-Life-and-Opinions-of-Tristram-Shandy-Gentleman_1079
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
