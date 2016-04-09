@@ -1,0 +1,64 @@
+_repo: The-Life-and-Opinions-of-Tristram-Shandy-Gentleman_1079
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Sterne, Laurence
+    alias: Yorick, Mr.
+    birthdate: 1713
+    deathdate: 1768
+    gutenberg_agent_id: '419'
+    url: http://www.gutenberg.org/2009/agents/419
+    wikipedia: http://en.wikipedia.org/wiki/Laurence_Sterne
+description: "The Life and Opinions of Tristram Shandy, Gentleman (or, more briefly,\
+  \ Tristram Shandy) is a humorous novel by Laurence Sterne. It was published in nine\
+  \ volumes, the first two appearing in 1759, and seven others following over the\
+  \ next seven years (vols. 3 and 4, 1761; vols. 5 and 6, 1762; vols. 7 and 8, 1765;\
+  \ vol. 9, 1767). Probably Sterne's most enduring work, it purports to be a biography\
+  \ of the eponymous character. Its style is marked by digression, double entendre,\
+  \ and striking graphic devices.\nSterne had read widely, which is reflected in Tristram\
+  \ Shandy. Many of his similes, for instance, are reminiscent of the works of the\
+  \ metaphysical poets of the 17th century, and the novel as a whole, with its focus\
+  \ on the problems of language, has constant regard to John Locke's theories in An\
+  \ Essay Concerning Human Understanding. Arthur Schopenhauer cited Tristram Shandy\
+  \ as one of the greatest novels ever written.\n From Wikipedia (CC BY-SA)."
+gutenberg_bookshelf: Best Books Ever Listings
+gutenberg_issued: '1997-10-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '1079'
+  wikidata: Q1164083
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Stream of consciousness fiction'
+- !lcsh 'Fetus -- Fiction'
+- !lcsh 'Experimental fiction'
+- !lcc 'PR'
+- !lcsh 'Fiction -- Authorship -- Fiction'
+- !lcsh 'Infants -- Fiction'
+- GITenberg
+title: The Life and Opinions of Tristram Shandy, Gentleman
+url: http://www.gutenberg.org/ebooks/1079
+wikipedia:
+- https://fi.wikipedia.org/wiki/Tristram_Shandy_%E2%80%93_el%C3%A4m%C3%A4_ja_mielipiteet
+- https://fr.wikipedia.org/wiki/Vie_et_opinions_de_Tristram_Shandy,_gentilhomme
+- https://ro.wikipedia.org/wiki/Tristram_Shandy
+- https://nl.wikipedia.org/wiki/Tristram_Shandy
+- https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%82%B9%E3%83%88%E3%83%A9%E3%83%A0%E3%83%BB%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%87%E3%82%A3
+- https://pt.wikipedia.org/wiki/Tristram_Shandy
+- https://pl.wikipedia.org/wiki/%C5%BBycie_i_my%C5%9Bli_JW_Pana_Tristrama_Shandy
+- https://fa.wikipedia.org/wiki/%D8%B2%D9%86%D8%AF%DA%AF%DB%8C_%D9%88_%D8%B9%D9%82%D8%A7%DB%8C%D8%AF_%D8%A2%D9%82%D8%A7%DB%8C_%D8%AA%D8%B1%DB%8C%D8%B3%D8%AA%D8%B1%D8%A7%D9%85_%D8%B4%D9%86%D8%AF%DB%8C
+- https://de.wikipedia.org/wiki/Leben_und_Ansichten_von_Tristram_Shandy,_Gentleman
+- https://es.wikipedia.org/wiki/Vida_y_opiniones_del_caballero_Tristram_Shandy
+- https://hu.wikipedia.org/wiki/Tristram_Shandy_%C3%BAr_%C3%A9lete_%C3%A9s_gondolatai
+- https://en.wikipedia.org/wiki/The_Life_and_Opinions_of_Tristram_Shandy,_Gentleman
+- https://it.wikipedia.org/wiki/Vita_e_opinioni_di_Tristram_Shandy,_gentiluomo
+- https://la.wikipedia.org/wiki/The_Life_and_Opinions_of_Tristram_Shandy
+- https://zh.wikipedia.org/wiki/%E9%A1%B9%E7%8B%84%E4%BC%A0
+- https://ru.wikipedia.org/wiki/%D0%A2%D1%80%D0%B8%D1%81%D1%82%D1%80%D0%B0%D0%BC_%D0%A8%D0%B5%D0%BD%D0%B4%D0%B8
+- https://ca.wikipedia.org/wiki/Tristram_Shandy
+- https://no.wikipedia.org/wiki/Tristram_Shandy
+- https://sv.wikipedia.org/wiki/V%C3%A4lborne_herr_Tristram_Shandy:_hans_liv_och_meningar
+- https://he.wikipedia.org/wiki/%D7%98%D7%A8%D7%99%D7%A1%D7%98%D7%A8%D7%9D_%D7%A9%D7%A0%D7%93%D7%99
